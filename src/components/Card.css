@@ -1,0 +1,37 @@
+.card {
+  background-color: white;
+  padding: 12px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+}
+.image {
+  width: 300px;
+  height: 220px;
+  cursor: pointer;
+}
+.card div {
+  margin-top: 5px;
+}
+.name {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.title {
+  font-weight: 500;
+  margin-right: 5px;
+}
+.value {
+  font-size: 0.9rem;
+}
+.upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.favorite {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.favorite:hover {
+  color: red;
+}

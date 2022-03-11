@@ -1,0 +1,29 @@
+.mainBanner {
+  margin: 5rem 0 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 5rem; */
+}
+.dogImage {
+  height: 30rem;
+  object-fit: contain;
+}
+.heading {
+  padding: 3rem;
+  text-align: center;
+}
+.big {
+  font-size: 2.8rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.big span {
+  color: rgb(52, 245, 165);
+  font-size: 3rem;
+}
+.para {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgb(97, 96, 96);
+}

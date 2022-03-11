@@ -1,0 +1,38 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+.search,
+.searchBtn {
+  outline: none;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+}
+.search {
+  border-radius: 2rem 0 0 2rem;
+  color: gray;
+}
+.searchBtn {
+  margin-left: -1rem;
+  font-weight: bold;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  background-color: rgb(108, 240, 185);
+  cursor: pointer;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+.favoriteNavbar {
+  font-size: 2rem;
+  margin-left: 20px;
+}
