@@ -36,3 +36,24 @@
   font-size: 2rem;
   margin-left: 20px;
 }
+@media (max-width: 750px) {
+  .nav {
+    align-items: flex-start;
+  }
+  .search,
+  .searchBtn {
+    padding: 0.8rem 2rem;
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
+  .favoriteNavbar {
+    position: absolute;
+    right: 2rem;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+  .searchBar {
+    flex-direction: column-reverse;
+  }
+}

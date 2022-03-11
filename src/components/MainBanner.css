@@ -27,3 +27,50 @@
   font-weight: 500;
   color: rgb(97, 96, 96);
 }
+
+@media (max-width: 1250px) and (min-width: 900px) {
+  .dogImage {
+    height: 23rem;
+  }
+  .heading {
+    padding: 1rem;
+  }
+  .big {
+    font-size: 2.3rem;
+  }
+  .big span {
+    font-size: 2.5rem;
+  }
+  .para {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 900px) {
+  .mainBanner {
+    flex-direction: column-reverse;
+  }
+  .dogImage {
+    height: 23rem;
+  }
+}
+@media (max-width: 750px) {
+  .big {
+    font-size: 2.3rem;
+  }
+  .big span {
+    font-size: 2.5rem;
+  }
+  .para {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 600px) {
+  .dogImage {
+    height: 18rem;
+  }
+}
+@media (max-width: 450px) {
+  .dogImage {
+    height: 15rem;
+  }
+}

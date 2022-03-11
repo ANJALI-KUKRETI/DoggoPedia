@@ -6,3 +6,14 @@
   width: 100%;
   color: rgb(53, 52, 52);
 }
+
+@media (max-width: 900px) {
+  .App {
+    padding: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .App {
+    padding: 1rem;
+  }
+}
