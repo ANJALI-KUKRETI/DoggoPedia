@@ -9,33 +9,41 @@ const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
 const Navbar = ({ showResults }) => {
   const [searchedData, setSearchedData] = useState("");
   const [passValue, setPassValue] = useState([]);
-  const passValueHandler = (event) => {
-    event.preventDefault();
-    showResults(passValue);
-    setSearchedData("");
-    // console.log(searchedData);
-  };
 
   const takingValueHandler = (event) => {
     setSearchedData(event.target.value);
   };
 
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(
-        `https://api.thedogapi.com/v1/breeds/search?q=${searchedData}`,
-        {
-          headers: {
-            "x-api-key": api_key,
-          },
-        }
-      );
-      console.log(request.data);
-      setPassValue(request.data);
-      return request;
-    }
-    fetchData();
+    const identifier = setTimeout(() => {
+      async function fetchData() {
+        const request = await axios.get(
+          `https://api.thedogapi.com/v1/breeds/search?q=${searchedData}`,
+          {
+            headers: {
+              "x-api-key": api_key,
+            },
+          }
+        );
+        console.log(request.data);
+        showResults(request.data);
+        setPassValue(request.data);
+        return request;
+      }
+      fetchData();
+    }, 500);
+
+    return () => {
+      clearTimeout(identifier);
+    };
   }, [searchedData]);
+
+  const passValueHandler = (event) => {
+    event.preventDefault();
+    showResults(passValue);
+    // console.log(searchedData);
+  };
+
   return (
     <div className="nav">
       <div className="logo">DoggoPedia</div>

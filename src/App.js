@@ -20,14 +20,15 @@ function App() {
         },
       });
       setDogsData(request.data.slice(0, 50));
-      // console.log(request.data);
+      console.log(request.data);
       setIsLoading(false);
       return request;
     }
     fetchData();
   }, []);
-
-  const showSearchResultsHandler = (passValue) => {
+  // let flag = 1;
+  const showSearchResultsHandler = async (passValue) => {
+    // flag = 0;
     console.log(passValue);
     setDogsData(passValue);
   };
@@ -42,7 +43,7 @@ function App() {
           {dogsData.map((dog) => (
             <Card
               key={dog.id}
-              image={dog.image.url}
+              image={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
               name={dog.name}
               height={dog.height.metric}
               lifeSpan={dog.life_span}
