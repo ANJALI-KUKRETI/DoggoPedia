@@ -7,10 +7,11 @@ import "./Navbar.css";
 const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
 
 const Navbar = ({ showResults }) => {
-  const [searchedData, setSearchedData] = useState([]);
+  const [searchedData, setSearchedData] = useState("");
+  const [passValue, setPassValue] = useState([]);
   const passValueHandler = (event) => {
     event.preventDefault();
-    showResults(searchedData);
+    showResults(passValue);
     setSearchedData("");
     // console.log(searchedData);
   };
@@ -29,7 +30,8 @@ const Navbar = ({ showResults }) => {
           },
         }
       );
-      // console.log(request.data);
+      console.log(request.data);
+      setPassValue(request.data);
       return request;
     }
     fetchData();

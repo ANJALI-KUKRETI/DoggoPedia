@@ -27,9 +27,9 @@ function App() {
     fetchData();
   }, []);
 
-  const showSearchResultsHandler = (searchedData) => {
-    console.log(searchedData);
-    setDogsData(searchedData);
+  const showSearchResultsHandler = (passValue) => {
+    console.log(passValue);
+    setDogsData(passValue);
   };
   return (
     <div className="App">
