@@ -55,5 +55,32 @@
   }
   .searchBar {
     flex-direction: column-reverse;
+
+    margin-right: 5rem;
+  }
+  .searchBar form {
+    position: absolute;
+    top: 7%;
+    right: 11rem;
+  }
+}
+@media (max-width: 650px) {
+  .searchBar form {
+    right: 9rem;
+  }
+}
+@media (max-width: 600px) {
+  .searchBar form {
+    right: 7rem;
+  }
+}
+@media (max-width: 500px) {
+  .searchBar form {
+    right: 3rem;
+  }
+}
+@media (max-width: 410px) {
+  .searchBar form {
+    right: 1rem;
   }
 }

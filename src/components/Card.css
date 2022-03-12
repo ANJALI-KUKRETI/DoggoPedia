@@ -56,3 +56,8 @@
     width: 18rem;
   }
 }
+@media (max-width: 500px) {
+  .image {
+    width: 17rem;
+  }
+}
