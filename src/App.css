@@ -5,6 +5,7 @@
   background-color: rgb(250, 244, 247);
   width: 100%;
   color: rgb(53, 52, 52);
+  min-height: 100vh;
 }
 
 @media (max-width: 900px) {

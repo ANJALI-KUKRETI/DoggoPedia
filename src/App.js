@@ -1,57 +1,15 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import HomePage from "./pages/HomePage";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Card from "./components/Card";
-import CardHolder from "./components/CardHolder";
-import MainBanner from "./components/MainBanner";
-import Navbar from "./components/Navbar";
-import Spinner from "./components/Spinner";
+import DetailPage from "./pages/DetailPage";
 
-const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
 function App() {
-  const [dogsData, setDogsData] = useState([]);
-  const [loading, setIsLoading] = useState(false);
-  useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      const request = await axios.get("https://api.thedogapi.com/v1/breeds", {
-        headers: {
-          "x-api-key": api_key,
-        },
-      });
-      setDogsData(request.data.slice(0, 50));
-      console.log(request.data);
-      setIsLoading(false);
-      return request;
-    }
-    fetchData();
-  }, []);
-  // let flag = 1;
-  const showSearchResultsHandler = async (passValue) => {
-    // flag = 0;
-    console.log(passValue);
-    setDogsData(passValue);
-  };
   return (
     <div className="App">
-      <Navbar showResults={showSearchResultsHandler} />
-      <MainBanner />
-      {loading && <Spinner />}
-
-      {!loading && (
-        <CardHolder>
-          {dogsData.map((dog) => (
-            <Card
-              key={dog.id}
-              image={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-              name={dog.name}
-              height={dog.height.metric}
-              lifeSpan={dog.life_span}
-              breedGroup={dog.breed_group}
-            />
-          ))}
-        </CardHolder>
-      )}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:dogId" element={<DetailPage />} />
+      </Routes>
     </div>
   );
 }

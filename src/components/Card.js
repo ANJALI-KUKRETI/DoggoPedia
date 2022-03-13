@@ -1,5 +1,6 @@
 import React from "react";
 import { BsHeart } from "react-icons/bs";
+
 import "./Card.css";
 
 const Card = ({ image, height, name, breedGroup, lifeSpan }) => {
