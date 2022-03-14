@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 
 const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
-const HomePage = () => {
+const HomePage = ({ getDogsArray }) => {
   const [dogsData, setDogsData] = useState([]);
   const [loading, setIsLoading] = useState(false);
   const [flag, setFlag] = useState(true);
@@ -23,22 +23,22 @@ const HomePage = () => {
         },
       });
       setDogsData(request.data.slice(0, 50));
-      console.log(request.data);
+      // console.log(request.data);
       setIsLoading(false);
       return request;
     }
     fetchData();
   }, []);
 
+  getDogsArray(dogsData);
   const showSearchResultsHandler = (passValue) => {
     if (passValue.length === 0) return;
     setFlag(false);
-    console.log(passValue);
+    // console.log(passValue);
     setDogsData(passValue);
   };
   return (
     <>
-      {" "}
       <Navbar showResults={showSearchResultsHandler} />
       {flag && <MainBanner />}
       {loading && <Spinner />}
@@ -47,10 +47,10 @@ const HomePage = () => {
           {dogsData.map((dog) => (
             <Link
               to={`/${dog.id}`}
+              key={dog.id}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <Card
-                key={dog.id}
                 image={
                   dog.reference_image_id
                     ? `https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`

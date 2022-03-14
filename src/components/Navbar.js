@@ -25,7 +25,7 @@ const Navbar = ({ showResults }) => {
             },
           }
         );
-        console.log(request.data);
+        // console.log(request.data);
         showResults(request.data);
         setPassValue(request.data);
         setSearchedData("");
