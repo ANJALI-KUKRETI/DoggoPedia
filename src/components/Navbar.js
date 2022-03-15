@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { BsHeart } from "react-icons/bs";
 import axios from "axios";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
 
@@ -62,9 +63,14 @@ const Navbar = ({ showResults }) => {
             <FaSearch /> Search
           </button>
         </form>
-        <div className="favorites">
-          <BsHeart className="favoriteNavbar" />
-        </div>
+        <Link
+          to="/favorites"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <div className="favorites">
+            <BsHeart className="favoriteNavbar" />
+          </div>
+        </Link>
       </div>
     </div>
   );

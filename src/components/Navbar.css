@@ -36,6 +36,9 @@
   font-size: 2rem;
   margin-left: 20px;
 }
+.favoriteNavbar:hover {
+  color: red;
+}
 @media (max-width: 750px) {
   .nav {
     align-items: flex-start;

@@ -9,9 +9,12 @@ import Navbar from "../components/Navbar";
 import Spinner from "../components/Spinner";
 
 const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
-const HomePage = ({ getDogsArray }) => {
+const HomePage = ({ getDogsArray, getFavoritesArray }) => {
   const [dogsData, setDogsData] = useState([]);
   const [loading, setIsLoading] = useState(false);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
   const [flag, setFlag] = useState(true);
   useEffect(() => {
     setFlag(true);
@@ -30,38 +33,37 @@ const HomePage = ({ getDogsArray }) => {
     fetchData();
   }, []);
 
-  getDogsArray(dogsData);
   const showSearchResultsHandler = (passValue) => {
     if (passValue.length === 0) return;
     setFlag(false);
     // console.log(passValue);
     setDogsData(passValue);
   };
+
+  const setFavoriteHandler = (id) => {
+    console.log(id);
+    // const temp = [];
+    // const initialDogs = [...dogsData];
+    const temp = dogsData.find((dog) => dog.id === id);
+    const newarr = [...favorites, temp];
+
+    setFavorites(newarr);
+
+    console.log(temp);
+  };
+  getDogsArray(dogsData);
+  getFavoritesArray(favorites);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  // console.log(favorites);
   return (
     <>
       <Navbar showResults={showSearchResultsHandler} />
       {flag && <MainBanner />}
       {loading && <Spinner />}
       {!loading && (
-        <CardHolder>
+        <CardHolder showHi>
           {dogsData.map((dog) => (
-            <Link
-              to={`/${dog.id}`}
-              key={dog.id}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <Card
-                image={
-                  dog.reference_image_id
-                    ? `https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`
-                    : "https://media.istockphoto.com/vectors/cartoon-cute-beagle-puppy-vector-character-mascot-vector-id1180989037?k=20&m=1180989037&s=612x612&w=0&h=7LRREi55KTZUNdW9eTKxp3iyYhnT7GaVvwA_LoP3jjE="
-                }
-                name={dog.name}
-                height={dog.height.metric}
-                lifeSpan={dog.life_span}
-                breedGroup={dog.breed_group}
-              />
-            </Link>
+            <Card dog={dog} onFavorite={setFavoriteHandler} />
           ))}
         </CardHolder>
       )}

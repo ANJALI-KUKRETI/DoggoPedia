@@ -1,0 +1,9 @@
+.favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleFavorite {
+  font-size: 2rem;
+  font-weight: 500;
+}
