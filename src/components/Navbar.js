@@ -26,7 +26,6 @@ const Navbar = ({ showResults }) => {
             },
           }
         );
-        // console.log(request.data);
         showResults(request.data);
         setPassValue(request.data);
         setSearchedData("");
@@ -43,8 +42,6 @@ const Navbar = ({ showResults }) => {
   const passValueHandler = (event) => {
     event.preventDefault();
     showResults(passValue);
-
-    // console.log(passValue);
   };
 
   return (

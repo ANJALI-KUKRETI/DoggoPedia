@@ -1,19 +1,11 @@
 import React from "react";
 import { BsHeart } from "react-icons/bs";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 import "./Card.css";
 
-const Card = ({
-  // image,
-  // height,
-  // name,
-  // breedGroup,
-  // id,
-  // lifeSpan,
-  onFavorite,
-  dog,
-}) => {
+const Card = ({ heart, onFavorite, dog, removeFavorite }) => {
   return (
     <div className="card">
       <Link
@@ -32,7 +24,16 @@ const Card = ({
       </Link>
       <div className="upper">
         <div className="name">{dog.name}</div>
-        <BsHeart className="favorite" onClick={() => onFavorite(dog.id)} />
+        {heart ? (
+          <BsHeart className="favorite" onClick={() => onFavorite(dog.id)} />
+        ) : (
+          <IoIosRemoveCircleOutline
+            className="favorite"
+            onClick={() => {
+              removeFavorite(dog.id);
+            }}
+          />
+        )}
       </div>
       <div className="height">
         <span className="title"> Height:</span>
