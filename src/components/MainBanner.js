@@ -16,7 +16,7 @@ const MainBanner = () => {
           </div>
         </div>
       </div>
-      <img src={dog} className="dogImage" />
+      <img src={dog} className="dogImage" alt="banner" />
     </div>
   );
 };
