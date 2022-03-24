@@ -22,7 +22,7 @@ function App() {
           "x-api-key": api_key,
         },
       });
-      setDogsData(request.data.slice(0, 50));
+      setDogsData(request.data);
       setIsLoading(false);
       return request;
     }
@@ -51,7 +51,7 @@ function App() {
   const setFavoriteHandler = (id) => {
     const temp = dogsData.find((dog) => dog.id === id);
     let newarr = [];
-    if (favorites.indexOf(temp) == -1) {
+    if (favorites.indexOf(temp) === -1) {
       newarr = [...favorites, temp];
     } else return;
     setFavorites(newarr);

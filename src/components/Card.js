@@ -35,6 +35,7 @@ const Card = ({ heart, onFavorite, dog, removeFavorite, favorites }) => {
               : "https://media.istockphoto.com/vectors/cartoon-cute-beagle-puppy-vector-character-mascot-vector-id1180989037?k=20&m=1180989037&s=612x612&w=0&h=7LRREi55KTZUNdW9eTKxp3iyYhnT7GaVvwA_LoP3jjE="
           }
           className="image"
+          alt="dogImage"
         />
       </Link>
       <div className="upper">

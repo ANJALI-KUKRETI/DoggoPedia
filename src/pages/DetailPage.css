@@ -1,12 +1,12 @@
 .down {
   display: flex;
   margin: 1.5rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 1.95px 1.95px 2.6px;
-  padding: 2rem 4rem;
+  padding: 3rem;
   background-color: white;
-  gap: 3rem;
+  gap: 2rem;
 }
 .leftContainer img {
   width: 600px;
