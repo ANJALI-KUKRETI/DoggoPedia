@@ -11,6 +11,7 @@ const HomePage = ({
   dogsData,
   setFavoriteHandler,
   showSearchResultsHandler,
+  favorites,
 }) => {
   console.log(dogsData);
 
@@ -22,7 +23,12 @@ const HomePage = ({
       {!loading && (
         <CardHolder showHi>
           {dogsData.map((dog) => (
-            <Card dog={dog} onFavorite={setFavoriteHandler} heart />
+            <Card
+              dog={dog}
+              onFavorite={setFavoriteHandler}
+              heart
+              favorites={favorites}
+            />
           ))}
         </CardHolder>
       )}

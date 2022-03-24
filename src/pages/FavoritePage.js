@@ -9,12 +9,7 @@ const FavoritePage = ({ favoriteDogs, removeFavorite }) => {
       <div className="titleFavorite">My favorites</div>
       <CardHolder>
         {favoriteDogs.map((dog) => (
-          <Card
-            className="fvrtCard"
-            dog={dog}
-            key={Date.now()}
-            removeFavorite={removeFavorite}
-          />
+          <Card dog={dog} key={Math.random()} removeFavorite={removeFavorite} />
         ))}
       </CardHolder>
     </div>

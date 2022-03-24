@@ -10,9 +10,7 @@ const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
 function App() {
   const [dogsData, setDogsData] = useState([]);
   const [loading, setIsLoading] = useState(false);
-  const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("favorites")) || []
-  );
+  const [favorites, setFavorites] = useState([]);
   const [flag, setFlag] = useState(true);
 
   useEffect(() => {
@@ -25,15 +23,17 @@ function App() {
         },
       });
       setDogsData(request.data.slice(0, 50));
-      // console.log(request.data);
       setIsLoading(false);
       return request;
     }
     fetchData();
+    const favoriteDogs = JSON.parse(localStorage.getItem("favorites"));
+    setFavorites(favoriteDogs);
   }, []);
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem("favorites", JSON.stringify(items));
+  };
 
   const showSearchResultsHandler = (passValue) => {
     if (passValue.length === 0) return;
@@ -42,24 +42,26 @@ function App() {
   };
 
   const removeFavoriteHandler = (id) => {
-    // console.log(id);
-    const temp = [...favorites];
-    // setFavorites(favorites.filter((fvrt) => fvrt.id !== id));
-
-    setFavorites(temp.filter((tmp) => tmp.id !== id));
-    console.log(temp);
+    console.log(id);
+    console.log(favorites);
+    const temp = favorites.filter((tmp) => tmp.id !== id);
+    setFavorites(temp);
+    saveToLocalStorage(temp);
   };
   const setFavoriteHandler = (id) => {
-    console.log(id);
     const temp = dogsData.find((dog) => dog.id === id);
-    const newarr = [...favorites, temp];
+    let newarr = [];
+    if (favorites.indexOf(temp) == -1) {
+      newarr = [...favorites, temp];
+    } else return;
     setFavorites(newarr);
-    console.log(temp);
+    saveToLocalStorage(newarr);
+    // console.log(temp);
   };
 
-  console.log(favorites);
+  // console.log(favorites);
 
-  console.log(dogsData);
+  // console.log(dogsData);
 
   return (
     <div className="App">
