@@ -7,7 +7,7 @@ const DetailPage = ({ dogsData }) => {
   const params = useParams();
   console.log(params.dogId);
   const currDog = dogsData.find((dog) => {
-    return dog.id == params.dogId;
+    return dog.id === params.dogId;
   });
   console.log(currDog);
   return (

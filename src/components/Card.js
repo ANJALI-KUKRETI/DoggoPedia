@@ -7,8 +7,8 @@ import "./Card.css";
 
 const Card = ({ heart, onFavorite, dog, removeFavorite, favorites }) => {
   const [red, setRed] = useState(false);
-  console.log(favorites);
-  console.log(dog.id);
+  // console.log(favorites);
+  // console.log(dog.id);
   const setFavoriteHandler = () => {
     onFavorite(dog.id);
   };
@@ -19,7 +19,7 @@ const Card = ({ heart, onFavorite, dog, removeFavorite, favorites }) => {
     } else {
       setRed(false);
     }
-  }, [favorites]);
+  }, [favorites, dog.id]);
 
   return (
     <div className="card">

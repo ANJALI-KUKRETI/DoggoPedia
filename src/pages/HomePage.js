@@ -13,7 +13,7 @@ const HomePage = ({
   showSearchResultsHandler,
   favorites,
 }) => {
-  console.log(favorites);
+  // console.log(favorites);
 
   return (
     <>
@@ -24,6 +24,7 @@ const HomePage = ({
         <CardHolder showHi>
           {dogsData.map((dog) => (
             <Card
+              key={Math.random()}
               dog={dog}
               onFavorite={setFavoriteHandler}
               heart
