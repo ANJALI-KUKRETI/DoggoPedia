@@ -75,6 +75,7 @@ function App() {
               dogsData={dogsData}
               setFavoriteHandler={setFavoriteHandler}
               showSearchResultsHandler={showSearchResultsHandler}
+              favorites={favorites}
               showHi
             />
           }
@@ -87,6 +88,7 @@ function App() {
               favoriteDogs={favorites}
               removeFavorite={removeFavoriteHandler}
               heart
+              favorites={favorites}
             />
           }
         />

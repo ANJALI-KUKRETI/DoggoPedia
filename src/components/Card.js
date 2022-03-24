@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsHeart } from "react-icons/bs";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -6,13 +6,21 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 
 const Card = ({ heart, onFavorite, dog, removeFavorite, favorites }) => {
-  // const [red, setRed]=useState(false);
-  // console.log(favorites);
-  // console.log(dog);
+  const [red, setRed] = useState(false);
+  console.log(favorites);
+  console.log(dog.id);
   const setFavoriteHandler = () => {
     onFavorite(dog.id);
-    // setRed(true)
   };
+
+  useEffect(() => {
+    if (favorites.find((fav) => fav.id === dog.id)) {
+      setRed(true);
+    } else {
+      setRed(false);
+    }
+  }, [favorites]);
+
   return (
     <div className="card">
       <Link
@@ -32,7 +40,11 @@ const Card = ({ heart, onFavorite, dog, removeFavorite, favorites }) => {
       <div className="upper">
         <div className="name">{dog.name}</div>
         {heart ? (
-          <BsHeart className="favorite" onClick={setFavoriteHandler} />
+          <BsHeart
+            className="favorite"
+            onClick={setFavoriteHandler}
+            style={red && { color: "red" }}
+          />
         ) : (
           <IoIosRemoveCircleOutline
             className="favorite"

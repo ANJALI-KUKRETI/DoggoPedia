@@ -13,7 +13,7 @@ const HomePage = ({
   showSearchResultsHandler,
   favorites,
 }) => {
-  console.log(dogsData);
+  console.log(favorites);
 
   return (
     <>

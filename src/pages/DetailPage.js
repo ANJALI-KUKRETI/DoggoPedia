@@ -4,11 +4,11 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import "./DetailPage.css";
 
 const DetailPage = ({ dogsData }) => {
-  console.log(dogsData);
+  // console.log(dogsData);
   const params = useParams();
   console.log(params.dogId);
   const currDog = dogsData.find((dog) => {
-    console.log(dog.id);
+    // console.log(dog.id);
     return dog.id == params.dogId;
   });
   console.log(currDog);
