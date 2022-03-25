@@ -10,7 +10,9 @@ const api_key = "7497a9ea-637d-4955-ab84-3601a78a3fb6";
 function App() {
   const [dogsData, setDogsData] = useState([]);
   const [loading, setIsLoading] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
   const [flag, setFlag] = useState(true);
 
   useEffect(() => {
@@ -27,8 +29,8 @@ function App() {
       return request;
     }
     fetchData();
-    const favoriteDogs = JSON.parse(localStorage.getItem("favorites"));
-    setFavorites(favoriteDogs);
+    // const favoriteDogs = JSON.parse(localStorage.getItem("favorites"));
+    // setFavorites(favoriteDogs);
   }, []);
 
   const saveToLocalStorage = (items) => {
