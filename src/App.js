@@ -58,12 +58,7 @@ function App() {
     } else return;
     setFavorites(newarr);
     saveToLocalStorage(newarr);
-    // console.log(temp);
   };
-
-  // console.log(favorites);
-
-  // console.log(dogsData);
 
   return (
     <div className="App">
